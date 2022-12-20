@@ -1,0 +1,14 @@
+.searched {
+    height: 100%;
+    padding: 80px 15px 30px 15px;
+
+    &__link {
+        margin-bottom: 20px;
+    }
+
+    &__main {
+        display: flex;
+
+        gap: 30px;
+    }
+}

@@ -1,0 +1,19 @@
+.sidebar {
+    border: 2px solid black;
+    border-radius: 10px;
+    min-width: 230px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    height: 100%;
+    &__list {
+        padding: 0;
+
+        text-align: center;
+
+        &-item {
+            cursor: pointer;
+        }
+    }
+}
