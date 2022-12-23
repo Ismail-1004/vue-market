@@ -17,13 +17,14 @@ export default {
         ...mapMutations(['showError']),
         searchedProducts () {
             if (this.product.trim()) {
-                const product = this.mainProducts.filter(p => {
-                    return p.name.toLowerCase().indexOf(this.product.toLowerCase()) !== -1
+                const product = this.products.filter(p => {
+                    return p.brand.toLowerCase().indexOf(this.product.toLowerCase()) !== -1
                 })
 
                 if (product.length !== 0) {
-                    this.$router.push({name: 'Searched', params: {id: product[0].productId} })
+                    this.$router.push({name: 'Searched', params: {brand: product[0].brand.toLowerCase()}})
                     this.product = ''
+                    this.$store.state.filter.brands.length = 0
                 } else {
                     this.showError()
                 }
@@ -35,7 +36,7 @@ export default {
     },
 
     computed: {
-        ...mapGetters(['mainProducts'])
+        ...mapGetters(['products'])
     }
 }
 </script>

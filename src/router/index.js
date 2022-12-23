@@ -8,7 +8,7 @@ const routes = [
     component: Home
   },
   {
-    path: '/searched/:id',
+    path: '/searched/:brand',
     props: true,
     name: 'Searched',
     component: () => import('../views/SearchedProducts.vue')

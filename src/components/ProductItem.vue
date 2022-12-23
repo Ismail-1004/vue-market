@@ -1,5 +1,5 @@
 <template>
-    <li class="list-group-item sidebar__list-item" :data-id="product.id" @click="changeFilter(product.id)" :class="{active: filter === product.id}"> {{ product.title }} </li>
+    <li class="list-group-item sidebar__list-item" :data-id="product" @click="changeFilter(product)" :class="{active: filter === product}"> {{ product }} </li>
 </template>
 
 <script>
@@ -8,7 +8,7 @@ import {mapMutations, mapGetters} from 'vuex'
 export default {
     props: {
         product: {
-            type: Object,
+            type: String,
             required: true
         }
     },

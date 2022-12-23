@@ -6,23 +6,20 @@
             <hr>
 
             <ProductsList 
-                :products="products"
+                :sidebarBrands="sidebarBrands"
             />
         </div>
     </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import ProductsList from '@/components/ProductsList'
 
 export default {
-    data: () => ({
-        products: [
-            {id: 1, title: 'Mobile devices'},
-            {id: 2, title: 'Computers'},
-            {id: 3, title: 'Sneakers'}
-        ],
-    }),
+    computed: {
+        ...mapGetters(['sidebarBrands'])
+    },
     
     components: {ProductsList}
 }

@@ -5,7 +5,7 @@
         </div>
         <div class="searched__main">
             <Products 
-                v-for="p in products" 
+                v-for="p in productsList" 
                 :key="p.productId"
                 :product="p"
                 >
@@ -26,34 +26,34 @@ import Modal from '@/components/Modal'
 import { mapGetters } from 'vuex'
 
 export default {
-    props: ['id'],
+    props: ['brand'],
 
     data: () => ({
-        products: []
+        productsList: [],
     }),
 
     methods: {
-        showSearchedProduct (id) {
-            this.products = this.mainProducts.filter(p => {
-                return p.productId === +id
+        showSearchedProduct (brand) {
+            this.productsList = this.products.filter(p => {
+                return p.brand.toLowerCase() === brand
             })
-        }
+        },
     },
 
     watch: {
-        id (value) {
+        brand (value) {
             this.showSearchedProduct(value)
         }
     },
 
     computed: {
-        ...mapGetters(['mainProducts', 'errorModal'])
+        ...mapGetters(['mainProducts', 'errorModal', 'products'])
     },
 
     components: { Products, Modal },
 
     created () {
-        this.showSearchedProduct(this.id)
+        this.showSearchedProduct(this.brand)
     }
 }
 </script>
